@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Food Menu</title>
+    <link rel="stylesheet" href="canteen.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .menu-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .menu-section {
+            margin-bottom: 20px;
+        }
+        .menu-section h2 {
+            text-align: left;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping for responsiveness */
+            justify-content: space-between; /* Distribute items evenly */
+            padding: 10px 0;
+        }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            margin: 10px; /* Space around each item */
+            width: calc(33.33% - 20px); /* 3 items per row with margin adjustment */
+            box-sizing: border-box; /* Include padding and margin in width */
+        }
+        .menu-item img {
+            width: 120px; /* Increase image width */
+            height: 100px; /* Increase image height */
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+        .item-info {
+            flex-grow: 1;
+        }
+        .item-info h3 {
+            margin: 0 0 5px;
+        }
+        .price {
+            color: #e67e22;
+            font-weight: bold;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .menu-item {
+                width: calc(50% - 20px); /* 2 items per row on smaller screens */
+            }
+        }
+        @media (max-width: 480px) {
+            .menu-item {
+                width: 100%; /* 1 item per row on very small screens */
+            }
+            .menu-item img {
+                width: 100px; /* Adjust image size for smaller screens */
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Our Delicious Menu</h1>
+
+        <!-- Breakfast Menu -->
+        <div class="menu-section">
+            <h2>Breakfast</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="./img/pic1.jpg" alt="Pancakes">
+                    <div class="item-info">
+                        <h3>Pancakes</h3>
+                        <p>Fluffy pancakes with syrup and berries.</p>
+                        <p class="price">$5.99</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Omelette">
+                    <div class="item-info">
+                        <h3>Cheese Omelette</h3>
+                        <p>Egg omelette stuffed with cheese and herbs.</p>
+                        <p class="price">$4.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Toast">
+                    <div class="item-info">
+                        <h3>Avocado Toast</h3>
+                        <p>Crispy toast topped with avocado and chili flakes.</p>
+                        <p class="price">$6.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Smoothie">
+                    <div class="item-info">
+                        <h3>Berry Smoothie</h3>
+                        <p>A blend of fresh berries and yogurt.</p>
+                        <p class="price">$4.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="French Toast">
+                    <div class="item-info">
+                        <h3>French Toast</h3>
+                        <p>Golden-brown French toast served with syrup.</p>
+                        <p class="price">$5.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Yogurt Parfait">
+                    <div class="item-info">
+                        <h3>Yogurt Parfait</h3>
+                        <p>Layers of yogurt, granola, and fresh fruit.</p>
+                        <p class="price">$4.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Breakfast Burrito">
+                    <div class="item-info">
+                        <h3>Breakfast Burrito</h3>
+                        <p>A tortilla filled with eggs, cheese, and salsa.</p>
+                        <p class="price">$6.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Omelette">
+                    <div class="item-info">
+                        <h3>Cheese Omelette</h3>
+                        <p>Egg omelette stuffed with cheese and herbs.</p>
+                        <p class="price">$4.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Fruit Salad">
+                    <div class="item-info">
+                        <h3>Fruit Salad</h3>
+                        <p>Seasonal fruits tossed together.</p>
+                        <p class="price">$3.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lunch Menu -->
+        <div class="menu-section">
+            <h2>Lunch</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Cheese Burger">
+                    <div class="item-info">
+                        <h3>Cheese Burger</h3>
+                        <p>Juicy patty with melted cheese and fresh veggies.</p>
+                        <p class="price">$9.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Omelette">
+                    <div class="item-info">
+                        <h3>Cheese Omelette</h3>
+                        <p>Egg omelette stuffed with cheese and herbs.</p>
+                        <p class="price">$4.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Spaghetti Carbonara">
+                    <div class="item-info">
+                        <h3>Spaghetti Carbonara</h3>
+                        <p>Creamy sauce with pancetta and parmesan.</p>
+                        <p class="price">$14.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Caesar Salad">
+                    <div class="item-info">
+                        <h3>Caesar Salad</h3>
+                        <p>Crisp romaine, croutons, and parmesan.</p>
+                        <p class="price">$7.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Grilled Chicken">
+                    <div class="item-info">
+                        <h3>Grilled Chicken</h3>
+                        <p>Marinated grilled chicken served with veggies.</p>
+                        <p class="price">$10.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Fried Rice">
+                    <div class="item-info">
+                        <h3>Fried Rice</h3>
+                        <p>Stir-fried rice with vegetables and eggs.</p>
+                        <p class="price">$8.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Tacos">
+                    <div class="item-info">
+                        <h3>Chicken Tacos</h3>
+                        <p>Soft tortillas with spiced chicken and salsa.</p>
+                        <p class="price">$11.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Quinoa Bowl">
+                    <div class="item-info">
+                        <h3>Quinoa Bowl</h3>
+                        <p>Healthy quinoa with mixed vegetables.</p>
+                        <p class="price">$9.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Club Sandwich">
+                    <div class="item-info">
+                        <h3>Club Sandwich</h3>
+                        <p>Triple-decker sandwich with turkey, bacon, and lettuce.</p>
+                        <p class="price">$8.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Snacks Menu -->
+        <div class="menu-section">
+            <h2>Snacks</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="French Fries">
+                    <div class="item-info">
+                        <h3>French Fries</h3>
+                        <p>Crispy fries served with ketchup.</p>
+                        <p class="price">$3.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Omelette">
+                    <div class="item-info">
+                        <h3>Cheese Omelette</h3>
+                        <p>Egg omelette stuffed with cheese and herbs.</p>
+                        <p class="price">$4.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Nachos">
+                    <div class="item-info">
+                        <h3>Nachos</h3>
+                        <p>Crunchy tortilla chips with cheese sauce.</p>
+                        <p class="price">$5.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Spring Rolls">
+                    <div class="item-info">
+                        <h3>Spring Rolls</h3>
+                        <p>Crispy rolls filled with vegetables.</p>
+                        <p class="price">$4.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Onion Rings">
+                    <div class="item-info">
+                        <h3>Onion Rings</h3>
+                        <p>Battered onion rings fried to perfection.</p>
+                        <p class="price">$4.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Chicken Wings">
+                    <div class="item-info">
+                        <h3>Chicken Wings</h3>
+                        <p>Spicy wings served with blue cheese dressing.</p>
+                        <p class="price">$6.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Stuffed Mushrooms">
+                    <div class="item-info">
+                        <h3>Stuffed Mushrooms</h3>
+                        <p>Mushrooms stuffed with cheese and herbs.</p>
+                        <p class="price">$5.99</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Potato Skins">
+                    <div class="item-info">
+                        <h3>Potato Skins</h3>
+                        <p>Crispy potato skins topped with cheese and bacon.</p>
+                        <p class="price">$6.49</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/120" alt="Cheese Sticks">
+                    <div class="item-info">
+                        <h3>Cheese Sticks</h3>
+                        <p>Fried cheese sticks served with marinara sauce.</p>
+                        <p class="price">$5.49</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

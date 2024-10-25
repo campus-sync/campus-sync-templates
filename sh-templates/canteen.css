@@ -1,0 +1,87 @@
+/* Reset basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Container for the menu */
+.menu-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Heading */
+h1 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Flexbox container for horizontal layout */
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin: 5px; /* Reduced space around each item */
+    width: calc(33.33% - 10px); /* 3 items per row with margin adjustment */
+    box-sizing: border-box; /* Include padding and margin in width */
+}
+
+
+/* Individual menu item */
+.menu-item {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 48%; /* Adjust width for two items per row */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect */
+.menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Menu item image */
+.menu-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+/* Item information */
+.item-info {
+    text-align: left;
+}
+
+.item-info h2 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #444;
+}
+
+.item-info p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.price {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .menu-item {
+        width: 100%; /* Stack items vertically on smaller screens */
+    }
+}

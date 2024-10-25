@@ -20,7 +20,7 @@ h1 {
     color: #333;
 }
 
-/* Flexbox container for horizontal layout */
+/* Flexbox container for horizontal layouts */
 .menu-item {
     display: flex;
     align-items: center;

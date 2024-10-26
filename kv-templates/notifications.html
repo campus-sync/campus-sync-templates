@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Notifications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f4f7;
+        }
+
+        .accordion {
+            width: 90%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            margin: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item {
+            border-top: 1px solid #ddd;
+        }
+
+        .accordion-header {
+            padding: 15px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: #0073e6;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: #005bb5;
+        }
+
+        .accordion-header i {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            color: #333;
+            padding: 0 20px;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            opacity: 0;
+        }
+
+        .accordion-header.active .accordion-content {
+            max-height: 150px;
+            padding: 15px 20px;
+            opacity: 1;
+        }
+
+        .accordion-header.active::after {
+            content: "-";
+        }
+
+        .accordion-header::after {
+            content: "+";
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active::after {
+            transform: rotate(45deg);
+        }
+
+        /* Additional notifications */
+        .accordion-header[data-type="assignment"] i {
+            color: #ffa500;
+        }
+        .accordion-header[data-type="material"] i {
+            color: #28a745;
+        }
+        .accordion-header[data-type="exam"] i {
+            color: #dc3545;
+        }
+        .accordion-header[data-type="event"] i {
+            color: #6f42c1;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 600px) {
+            .accordion {
+                width: 100%;
+                margin: 0;
+            }
+
+            .accordion-header {
+                padding: 10px;
+                font-size: 1em;
+            }
+
+            .accordion-content {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header" data-type="assignment">
+                <i class="fas fa-book"></i> Assignment Due Date
+            </div>
+            <div class="accordion-content">
+                <p>Your assignment on "Web Development Basics" is due on October 31. Please make sure to submit it on time.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header" data-type="material">
+                <i class="fas fa-file-alt"></i> New Lecture Material Available
+            </div>
+            <div class="accordion-content">
+                <p>New lecture notes for "Data Structures and Algorithms" have been uploaded. Check the resources section.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header" data-type="exam">
+                <i class="fas fa-calendar-alt"></i> Exam Schedule Released
+            </div>
+            <div class="accordion-content">
+                <p>The final semester exam schedule is now available. You can find it under the "Exams" tab in your LMS.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header" data-type="event">
+                <i class="fas fa-bullhorn"></i> Upcoming Workshop
+            </div>
+            <div class="accordion-content">
+                <p>Join us for the "AI in Education" workshop on November 5. Reserve your spot through the LMS.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header" data-type="material">
+                <i class="fas fa-clipboard-list"></i> Quiz Results Available
+            </div>
+            <div class="accordion-content">
+                <p>Your results for the recent quiz on "Operating Systems" have been posted. Review your performance under "Grades".</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const isActive = this.classList.contains('active');
+
+                // Collapse other active items
+                accordionHeaders.forEach(h => h.classList.remove('active'));
+                
+                // Toggle clicked item
+                if (!isActive) {
+                    this.classList.add('active');
+                }
+
+                // Update content visibility
+                const content = this.nextElementSibling;
+                document.querySelectorAll('.accordion-content').forEach(cont => {
+                    cont.style.maxHeight = null;
+                    cont.style.padding = '0 20px';
+                    cont.style.opacity = '0';
+                });
+                if (!isActive) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    content.style.padding = '15px 20px';
+                    content.style.opacity = '1';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

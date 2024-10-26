@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Notifications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #eaeff3;
+        }
+
+        .accordion {
+            width: 90%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease;
+            margin: 20px;
+        }
+
+        .accordion-header {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            background-color: #0073e6;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: #005bb5;
+        }
+
+        .accordion-header h3 {
+            font-size: 1.1em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        .accordion-header h3 i {
+            margin-right: 10px;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            background-color: #f8f9fa;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            color: #333;
+            opacity: 0;
+        }
+
+        .accordion-content p {
+            margin: 15px 0;
+        }
+
+        .accordion-header.active + .accordion-content {
+            max-height: 150px;
+            padding: 15px 20px;
+            opacity: 1;
+        }
+
+        .accordion-header.active {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion-header::after {
+            content: "\f078";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active::after {
+            transform: rotate(180deg);
+        }
+
+        /* Color-coded badges */
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #fff;
+            margin-left: 8px;
+        }
+        .badge-assignment { background-color: #ff9800; }
+        .badge-material { background-color: #4caf50; }
+        .badge-exam { background-color: #f44336; }
+        .badge-event { background-color: #9c27b0; }
+
+        /* Responsive styling */
+        @media (max-width: 600px) {
+            .accordion {
+                width: 100%;
+            }
+            .accordion-header {
+                padding: 10px;
+            }
+            .accordion-content {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="accordion">
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <h3><i class="fas fa-book"></i> Assignment Due Date <span class="badge badge-assignment">Assignment</span></h3>
+            </div>
+            <div class="accordion-content">
+                <p>Your assignment on "Web Development Basics" is due on October 31. Please make sure to submit it on time.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <h3><i class="fas fa-file-alt"></i> New Lecture Material Available <span class="badge badge-material">Material</span></h3>
+            </div>
+            <div class="accordion-content">
+                <p>New lecture notes for "Data Structures and Algorithms" have been uploaded. Check the resources section.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <h3><i class="fas fa-calendar-alt"></i> Exam Schedule Released <span class="badge badge-exam">Exam</span></h3>
+            </div>
+            <div class="accordion-content">
+                <p>The final semester exam schedule is now available. You can find it under the "Exams" tab in your LMS.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <h3><i class="fas fa-bullhorn"></i> Upcoming Workshop <span class="badge badge-event">Event</span></h3>
+            </div>
+            <div class="accordion-content">
+                <p>Join us for the "AI in Education" workshop on November 5. Reserve your spot through the LMS.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <h3><i class="fas fa-clipboard-list"></i> Quiz Results Available <span class="badge badge-material">Material</span></h3>
+            </div>
+            <div class="accordion-content">
+                <p>Your results for the recent quiz on "Operating Systems" have been posted. Review your performance under "Grades".</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const isActive = this.classList.contains('active');
+
+                // Collapse all active items
+                accordionHeaders.forEach(h => h.classList.remove('active'));
+
+                // Expand clicked item if not already active
+                if (!isActive) {
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
